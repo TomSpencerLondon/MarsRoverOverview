@@ -19,9 +19,19 @@ public class RoverShould {
   @CsvSource({
       "R, 0:0:E",
       "RR, 0:0:S",
-      "RRR, 0:0:W"
+      "RRR, 0:0:W",
+      "RRRR, 0:0:N"
   })
   void rotate_right(String input, String output) {
+    assertEquals(output, rover.execute(input));
+  }
+
+
+  @ParameterizedTest
+  @CsvSource({
+      "L, 0:0:W",
+  })
+  void rotate_left(String input, String output) {
     assertEquals(output, rover.execute(input));
   }
 }
