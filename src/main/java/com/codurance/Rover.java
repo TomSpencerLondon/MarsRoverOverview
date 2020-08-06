@@ -6,14 +6,18 @@ public class Rover {
 
   public String execute(String commands) {
     for (char c : commands.toCharArray()) {
-      if (direction == "E") {
-        direction = "S";
-      }
-      if (direction == "N"){
-        direction = "E";
-      }
+      direction = rotateRight();
+
     }
 
     return "0:0:" + direction;
+  }
+
+  private String rotateRight() {
+    if (direction == "N"){
+      return "E";
+    } else {
+      return "S";
+    }
   }
 }
