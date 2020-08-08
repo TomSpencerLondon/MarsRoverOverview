@@ -2,6 +2,7 @@ package com.codurance;
 
 import static com.codurance.Direction.EAST;
 import static com.codurance.Direction.NORTH;
+import static com.codurance.Direction.SOUTH;
 import static com.codurance.Direction.WEST;
 
 public class Rover {
@@ -43,6 +44,10 @@ public class Rover {
 
     if (direction == WEST){
       x = (x > 0) ? x - 1 : MAX_WIDTH - 1;
+    }
+
+    if (direction == SOUTH){
+      y = (y > 0) ? y - 1 : MAX_HEIGHT - 1;
     }
 
     return new Coordinate(x, y);

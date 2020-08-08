@@ -83,4 +83,14 @@ public class RoverShould {
   void move_left(String input, String output) {
     assertEquals(output, rover.execute(input));
   }
+
+  @ParameterizedTest
+  @CsvSource({
+      "RRM, 0:9:S",
+      "RRMMMMM, 0:5:S",
+      "RRMMMMMMMMMMM, 0:9:S"
+  })
+  void move_south(String input, String output) {
+    assertEquals(output, rover.execute(input));
+  }
 }
