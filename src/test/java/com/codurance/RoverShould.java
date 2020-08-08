@@ -13,7 +13,8 @@ public class RoverShould {
 
   @BeforeEach
   void setUp() {
-    rover = new Rover();
+    Grid grid = new Grid();
+    rover = new Rover(grid);
   }
 
   @ParameterizedTest

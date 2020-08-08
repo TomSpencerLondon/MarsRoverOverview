@@ -5,9 +5,13 @@ import static com.codurance.Direction.NORTH;
 public class Rover {
 
   Direction direction = NORTH;
-
   Coordinate coordinate = new Coordinate(0, 0);
-  private Grid grid = new Grid();
+
+  private Grid grid;
+
+  public Rover(Grid grid) {
+    this.grid = new Grid();
+  }
 
   public String execute(String commands) {
     for (char c : commands.toCharArray()) {
