@@ -77,7 +77,8 @@ public class RoverShould {
   @ParameterizedTest
   @CsvSource({
       "LM, 9:0:W",
-      "LMMMMM, 5:0:W"
+      "LMMMMM, 5:0:W",
+      "LMMMMMMMMMMMM, 8:0:W"
   })
   void move_left(String input, String output) {
     assertEquals(output, rover.execute(input));
