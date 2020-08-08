@@ -4,6 +4,8 @@ public class Rover {
 
   String direction = "N";
 
+  Direction eDirection = Direction.NORTH;
+
   public String execute(String commands) {
     for (char c : commands.toCharArray()) {
       if (c == 'R'){
@@ -15,6 +17,23 @@ public class Rover {
     }
 
     return "0:0:" + direction;
+  }
+
+  enum Direction {
+    NORTH("N", "W", "E"),
+    EAST("E", "N", "S"),
+    SOUTH("S", "E", "W"),
+    WEST("W", "S", "N");
+
+    private final String value;
+    private final String left;
+    private final String right;
+
+    Direction(String value, String left, String right) {
+      this.value = value;
+      this.left = left;
+      this.right = right;
+    }
   }
 
   private String rotateLeft() {
