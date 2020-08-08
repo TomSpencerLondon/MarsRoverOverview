@@ -47,4 +47,12 @@ public class RoverShould {
   void move_up(String input, String output) {
     assertEquals(output, rover.execute(input));
   }
+
+  @ParameterizedTest
+  @CsvSource({
+      "MMMMMMMMMM, 0:0:N"
+  })
+  void wrap_from_top_to_bottom(String input, String output) {
+    assertEquals(output, rover.execute(input));
+  }
 }
