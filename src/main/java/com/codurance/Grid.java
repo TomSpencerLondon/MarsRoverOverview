@@ -5,11 +5,11 @@ import static com.codurance.Direction.NORTH;
 import static com.codurance.Direction.SOUTH;
 import static com.codurance.Direction.WEST;
 
-public class Grid {
+class Grid {
   private static final int MAX_HEIGHT = 10;
   private static final int MAX_WIDTH = 10;
 
-  public Coordinate nextCoordinateFor(Coordinate coordinate, Direction direction) {
+  Coordinate nextCoordinateFor(Coordinate coordinate, Direction direction) {
     int y = coordinate.y();
     int x = coordinate.x();
     if (direction == NORTH){
