@@ -3,6 +3,7 @@ package com.codurance;
 public class Rover {
 
   private static final int MAX_HEIGHT = 10;
+  private static final int MAX_WIDTH = 10;
   Direction direction = Direction.NORTH;
 
   Coordinate coordinate = new Coordinate(0, 0);
@@ -27,10 +28,15 @@ public class Rover {
 
   private Coordinate move() {
     int y = coordinate.y();
+    int x = coordinate.x();
     if (direction.value.equals("N")){
       y = (y + 1) % MAX_HEIGHT;
     }
+    
+    if (direction.value.equals("E")){
+      x = (x + 1) % MAX_WIDTH;
+    }
 
-    return new Coordinate(coordinate.x(), y);
+    return new Coordinate(x, y);
   }
 }
