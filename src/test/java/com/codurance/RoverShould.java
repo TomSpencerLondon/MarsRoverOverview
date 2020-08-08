@@ -41,7 +41,8 @@ public class RoverShould {
 
   @ParameterizedTest
   @CsvSource({
-      "M, 0:1:N"
+      "M, 0:1:N",
+      "MMM, 0:3:N"
   })
   void move_up(String input, String output) {
     assertEquals(output, rover.execute(input));
