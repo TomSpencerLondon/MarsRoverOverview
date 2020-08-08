@@ -1,7 +1,9 @@
 package com.codurance;
 
+import static java.util.Arrays.asList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.Arrays;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -93,5 +95,17 @@ public class RoverShould {
   })
   void move_south(String input, String output) {
     assertEquals(output, rover.execute(input));
+  }
+
+  @ParameterizedTest
+  @CsvSource({
+      "MMMM, 0:3:N"
+  })
+  void stops_at_obstacle(String input, String output) {
+    Coordinate obstacle = new Coordinate(0, 4);
+    Grid oGrid = new Grid(asList(obstacle));
+    Rover oRover = new Rover(oGrid);
+
+    assertEquals(output, oRover.execute(input));
   }
 }

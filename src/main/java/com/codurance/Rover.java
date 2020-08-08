@@ -10,7 +10,7 @@ public class Rover {
   private Grid grid;
 
   public Rover(Grid grid) {
-    this.grid = new Grid();
+    this.grid = grid;
   }
 
   public String execute(String commands) {
@@ -25,7 +25,6 @@ public class Rover {
       if (c == 'M'){
         coordinate = grid.nextCoordinateFor(coordinate, direction);
       }
-
     }
 
     return coordinate.x() + ":" + coordinate.y() + ":" + direction.value;
