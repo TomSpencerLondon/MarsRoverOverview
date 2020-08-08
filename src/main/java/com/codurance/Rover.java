@@ -4,6 +4,8 @@ public class Rover {
 
   Direction direction = Direction.NORTH;
 
+  Coordinate coordinate = new Coordinate(0, 0);
+
   public String execute(String commands) {
     for (char c : commands.toCharArray()) {
       if (c == 'R') {
@@ -13,9 +15,21 @@ public class Rover {
         direction = direction.left();
       }
 
+      if (c == 'M'){
+        coordinate = move();
+      }
+
     }
 
-    return "0:0:" + direction.value;
+    return coordinate.x() + ":" + coordinate.y() + ":" + direction.value;
   }
 
+  private Coordinate move() {
+    int y = 0;
+    if (direction.value.equals("N")){
+      y += 1;
+    }
+
+    return new Coordinate(coordinate.x(), y);
+  }
 }

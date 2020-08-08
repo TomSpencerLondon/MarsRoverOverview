@@ -6,7 +6,7 @@ enum Direction {
   SOUTH("S", "E", "W"),
   WEST("W", "S", "N");
 
-  private final String value;
+  public final String value;
   private final String left;
   private final String right;
 
