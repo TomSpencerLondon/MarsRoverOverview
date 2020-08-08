@@ -2,21 +2,20 @@ package com.codurance;
 
 public class Rover {
 
-  String direction = "N";
-
-  Direction eDirection = Direction.NORTH;
+  Direction direction = Direction.NORTH;
 
   public String execute(String commands) {
     for (char c : commands.toCharArray()) {
-      if (c == 'R'){
-        direction = rotateRight();
-      }else if (c == 'L'){
-        direction = rotateLeft();
+      if (c == 'R') {
+        direction = direction.right();
+
+      } else if (c == 'L') {
+        direction = direction.left();
       }
 
     }
 
-    return "0:0:" + direction;
+    return "0:0:" + direction.value;
   }
 
   enum Direction {
@@ -34,29 +33,22 @@ public class Rover {
       this.left = left;
       this.right = right;
     }
-  }
 
-  private String rotateLeft() {
-    if (direction.equals("N")){
-      return "W";
-    }else if (direction.equals("W")){
-      return "S";
-    }else if (direction.equals("S")){
-      return "E";
-    }else {
-      return "N";
+    public Direction right() {
+      return directionMatching(right);
     }
-  }
 
-  private String rotateRight() {
-    if (direction.equals("N")){
-      return "E";
-    } else if (direction.equals("E")){
-      return "S";
-    } else if (direction.equals("S")){
-      return "W";
-    } else {
-      return "N";
+    public Direction left() {
+      return directionMatching(left);
+    }
+
+    private Direction directionMatching(String value) {
+      for (Direction direction : values()) {
+        if (direction.value.equals(value)) {
+          return direction;
+        }
+      }
+      return null;
     }
   }
 }
