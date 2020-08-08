@@ -18,11 +18,11 @@ public class Rover {
   }
 
   private String rotateLeft() {
-    if (direction == "N"){
+    if (direction.equals("N")){
       return "W";
-    }else if (direction == "W"){
+    }else if (direction.equals("W")){
       return "S";
-    }else if (direction == "S"){
+    }else if (direction.equals("S")){
       return "E";
     }else {
       return "N";
@@ -30,11 +30,11 @@ public class Rover {
   }
 
   private String rotateRight() {
-    if (direction == "N"){
+    if (direction.equals("N")){
       return "E";
-    } else if (direction == "E"){
+    } else if (direction.equals("E")){
       return "S";
-    } else if (direction == "S"){
+    } else if (direction.equals("S")){
       return "W";
     } else {
       return "N";
