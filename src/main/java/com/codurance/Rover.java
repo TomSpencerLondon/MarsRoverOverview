@@ -34,11 +34,9 @@ public class Rover {
   }
 
   private String move() {
-    String obstacleString;
     Optional<Coordinate> nextCoordinate = grid.nextCoordinateFor(coordinate, direction);
     nextCoordinate.ifPresent(nc -> this.coordinate = nc);
-    obstacleString = nextCoordinate.isPresent() ? "" : "O:";
-    return obstacleString;
+    return nextCoordinate.isPresent() ? "" : "O:";
   }
 
 }
