@@ -102,10 +102,11 @@ public class RoverShould {
       "MMMM, 0:3:N"
   })
   void stops_at_obstacle(String input, String output) {
-    Coordinate obstacle = new Coordinate(0, 4);
-    Grid oGrid = new Grid(asList(obstacle));
-    Rover oRover = new Rover(oGrid);
+    Coordinate obstacle_0x4 = new Coordinate(0, 4);
+    Coordinate obstacle_2x0 = new Coordinate(2, 0);
+    Grid grid = new Grid(asList(obstacle_0x4, obstacle_2x0));
+    Rover rover = new Rover(grid);
 
-    assertEquals(output, oRover.execute(input));
+    assertEquals(output, rover.execute(input));
   }
 }
