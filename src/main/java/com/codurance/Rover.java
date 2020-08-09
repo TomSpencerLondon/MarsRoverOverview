@@ -26,13 +26,19 @@ public class Rover {
       }
 
       if (c == 'M'){
-        Optional<Coordinate> nextCoordinate = grid.nextCoordinateFor(coordinate, direction);
-        nextCoordinate.ifPresent(nc -> this.coordinate = nc);
-        obstacleString = nextCoordinate.isPresent() ? "" : "O:";
+        obstacleString = move();
       }
     }
 
     return obstacleString + coordinate.x() + ":" + coordinate.y() + ":" + direction.value;
+  }
+
+  private String move() {
+    String obstacleString;
+    Optional<Coordinate> nextCoordinate = grid.nextCoordinateFor(coordinate, direction);
+    nextCoordinate.ifPresent(nc -> this.coordinate = nc);
+    obstacleString = nextCoordinate.isPresent() ? "" : "O:";
+    return obstacleString;
   }
 
 }
