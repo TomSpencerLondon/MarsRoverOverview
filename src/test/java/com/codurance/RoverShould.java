@@ -99,7 +99,7 @@ public class RoverShould {
 
   @ParameterizedTest
   @CsvSource({
-      "MMMM, 0:3:N"
+      "MMMM, O:0:3:N"
   })
   void stops_at_obstacle(String input, String output) {
     Coordinate obstacle_0x4 = new Coordinate(0, 4);

@@ -7,6 +7,7 @@ import static com.codurance.Direction.WEST;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 class Grid {
   private static final int MAX_HEIGHT = 10;
@@ -20,7 +21,7 @@ class Grid {
     this.obstacles = obstacles;
   }
 
-  Coordinate nextCoordinateFor(Coordinate coordinate, Direction direction) {
+  Optional<Coordinate> nextCoordinateFor(Coordinate coordinate, Direction direction) {
     int y = coordinate.y();
     int x = coordinate.x();
     if (direction == NORTH){
@@ -41,7 +42,7 @@ class Grid {
 
     Coordinate newCoordinate = new Coordinate(x, y);
     return obstacles.contains(newCoordinate)
-        ? coordinate
-        : newCoordinate;
+        ? Optional.empty()
+        : Optional.of(newCoordinate);
   }
 }
